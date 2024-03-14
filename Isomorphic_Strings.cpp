@@ -1,3 +1,37 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        if(s.length()!=t.length()) return false;
+        unordered_map<char, char> mpps,mppt;
+        for(int i = 0; i<s.length() ; i++){
+            if(mpps.find(s[i])== mpps.end() && mppt.find(t[i]) == mppt.end()){
+                // if the s[i] we are finding is pointing to end iterator 
+                // that means the s[i]is not present so map s[i] with t[i] and t[i] with s[i]
+                //condition checks if both maps do not contain mappings for the current characters s[i] and t[i]. If this is the case, 
+                //it means that these characters have not been mapped before, so we add them to the maps.
+                mpps[s[i]] = t[i];
+                mppt[t[i]] = s[i];
+                //These lines add mappings for the current 
+                //characters s[i] and t[i] to the maps mp1 and mp2, respectively.
+            }
+            else{
+                if(mpps[s[i]]!=t[i] || mppt[t[i]]!=s[i]){
+                    // if the current s[i] is not mapping to the desired t[i] that means
+                    // mapping is incorrect checks if the mappings stored in mp1 and mp2 for the 
+                    //current characters s[i] and t[i] are not consistent with the current characters. 
+                    //If they are not consistent, it means that the strings s and t are not isomorphic, 
+                    //so the function returns false.
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
+};
+
+// best sol ---
+
 bool isIsomorphic(string s, string t) {
        char mpp_s[128] = {0};
        char mpp_t[128] = {0};
