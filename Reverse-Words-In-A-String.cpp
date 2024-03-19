@@ -23,7 +23,7 @@ public:
         //If not empty string then add to the result(Last word is added)
         // after the iteration of left<=right
         // left++ stores temp = blue then left > right 
-        // so now the last word is added to the ans at the front
+        // so now the last word is added to the ans at the front, temp at the front -> temp + "  " + ans;
         if(!temp.empty()){
             if(!ans.empty()) ans = temp + " " + ans;
             else ans = temp;
