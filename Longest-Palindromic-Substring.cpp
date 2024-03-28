@@ -15,7 +15,7 @@ string longestPalindrome(string s) {
                 left--;
                 right++;
             }
-            // for odd indexes
+            // for odd indexes in the string
             left = i-1;
             right = i+1;
             while(left>=0 && right <= s.length()-1  && s[left] == s[right]){
